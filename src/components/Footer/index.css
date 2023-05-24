@@ -1,0 +1,12 @@
+.foot-con {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  background: #000000;
+}
+.foot-par {
+  font-size: 20px;
+  font-weight: 500;
+  color: bisque;
+}

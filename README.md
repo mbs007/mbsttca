@@ -1,3 +1,32 @@
+# Project Description
+
+1.This is a 'Touch Typing' app where user can practice typing keys ('a','s','d','f','j','k','l,';',' ')
+
+2.App consists of Header, Typing Container and Footer.
+
+3.Header consists of score, timer and keycount.
+
+4.keycount is the number of key presses made by user in input field.
+
+5.When user provided input is same as generated typing statement, user will score one point and new statement
+is generated and input field is resetted.
+
+6.There is a timer of 5 minutes. After timer ends, user will see a Game Over Score Board with Start Again Button.
+on clicking button game is resetted to initial state.
+
+7.Typing container consists of 
+a-combination,repetition select elements with options ; 
+b-generated typing statement (default is  bigrams with 2combination and 3 repetition); 
+c- input field 
+d- key supposed to be typed next
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

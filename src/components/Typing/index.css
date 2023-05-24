@@ -1,0 +1,95 @@
+.bg-con {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(
+    to right,
+    #1b1b1c,
+    #2a2a2b,
+    #535557,
+    #a1a6ad
+  );
+  background-size: cover;
+  min-height: 75vh;
+}
+.p-para {
+  font-size: 35px;
+  font-weight: bold;
+  color: #ffffff;
+}
+.u-inp {
+  background-color: pink;
+  color: green;
+  font-size: 25px;
+  font-weight: 600;
+  border: 1px solid #a1a6ad;
+  height: 80px;
+  width: 70%;
+  padding: 10px;
+}
+.tbt-key {
+  font-size: 50px;
+  font-weight: bold;
+  padding: 10px;
+  color: #ffffffe7;
+}
+.opt-con {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.combi {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  margin-right: 20px;
+}
+.label-c {
+  margin-bottom: 10px;
+}
+
+.game-over-con {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  color: #ffffff;
+  min-height: 80vh;
+}
+
+.go-para {
+  text-align: center;
+  font-size: 100px;
+  font-weight: bold;
+}
+.go-btn {
+  background-color: red;
+  padding: 10px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 7px;
+}
+.sco-para{
+  font-size: 35px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 767px) {
+  .p-para {
+    font-size: 20px;
+  }
+  .tbt-key {
+    font-size: 30px;
+  }
+  .go-para {
+    font-size: 35px;
+  }
+  .sco-para{
+    font-size: 20px;
+  }
+}

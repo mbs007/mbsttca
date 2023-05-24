@@ -1,0 +1,36 @@
+.nav-con {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 10vh;
+  background-color: rgb(16, 17, 17);
+  padding-left: 10px;
+  padding-right: 30px;
+}
+.nav-head {
+  color: aliceblue;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 20px;
+}
+.timer {
+  color: blue;
+  font-weight: bold;
+  font-size: 20px;
+}
+.score-kc-para {
+  color: blue;
+  font-weight: bold;
+  font-size: 20px;
+}
+@media screen and (max-width: 767px) {
+  .score-kc-para {
+    font-size: 12px;
+  }
+  .nav-head {
+    font-size: 12px;
+  }
+  .timer {
+    font-size: 15px;
+  }
+}
