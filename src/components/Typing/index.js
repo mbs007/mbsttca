@@ -56,7 +56,7 @@ const Typing = () => {
   }, [isGame]);
 
   useEffect(() => {
-    if (timeElapsedInSeconds === 60) {
+    if (timeElapsedInSeconds === 300) {
       setIsGame(false);
       clearInterval(timerId);
     }
