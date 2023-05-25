@@ -1,9 +1,18 @@
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import {
+  addItem,
+  addKeyStrokes,
+  clearAllItems,
+  clearAllKeyStrokes,
+} from "../../utils/appSlice";
 import { generateProblem, ToBeTyped } from "../../utils/helper";
+import { uncountedKeys } from "../../utils/constants";
 import Header from "../Header";
 import "./index.css";
 
 const Typing = () => {
+  const dispatch = useDispatch();
   const [userInput, setUserInput] = useState("");
   const [combination, setCombination] = useState(2);
   const [repetition, setRepetition] = useState(3);
@@ -17,11 +26,17 @@ const Typing = () => {
 
   useEffect(() => {
     if (problem === userInput) {
+      dispatch(addItem(problem));
+      dispatch(addKeyStrokes(keyCount));
       setProblem(generateProblem(combination, repetition));
       setUserInput("");
       setScore((prev) => prev + 1);
     }
   }, [userInput]);
+
+  useEffect(() => {
+    setKeyCount(0);
+  }, [problem]);
 
   useEffect(() => {
     setTypeKey(ToBeTyped(problem, userInput));
@@ -32,24 +47,14 @@ const Typing = () => {
     setUserInput("");
   }, [combination, repetition, isGame]);
 
-  const onChangeUserInput = (event) => {
-    setUserInput(event.target.value);
-  };
-
-  const handleCombiChange = (event) => {
-    setCombination(event.target.value);
-  };
-
-  const handleRepeChange = (event) => {
-    setRepetition(event.target.value);
-  };
-
   useEffect(() => {
     const updateTime = () => {
       setTimeElapsedInSeconds((prev) => prev + 1);
     };
     const intervalId = setInterval(updateTime, 1000);
+
     setTimerId(intervalId);
+
     return () => {
       clearInterval(intervalId);
     };
@@ -82,16 +87,30 @@ const Typing = () => {
 
   const time = `${renderMinutes()}:${renderSeconds()}`;
 
+  const onChangeUserInput = (event) => {
+    setUserInput(event.target.value);
+  };
+
+  const handleCombiChange = (event) => {
+    setCombination(event.target.value);
+  };
+
+  const handleRepeChange = (event) => {
+    setRepetition(event.target.value);
+  };
+
   const clickStartGame = () => {
     setIsGame(true);
     setTimeElapsedInSeconds(0);
     setScore(0);
     setKeyCount(0);
+    dispatch(clearAllItems());
+    dispatch(clearAllKeyStrokes());
   };
 
   return isGame ? (
     <div>
-      <Header timer={time} score={score} keyCount={keyCount} />
+      <Header time={time} score={score} />
       <div className="bg-con">
         <div className="opt-con">
           <div className="combi">
@@ -129,8 +148,10 @@ const Typing = () => {
           value={userInput}
           placeholder="Type here"
           onChange={onChangeUserInput}
-          onKeyDown={() => {
-            setKeyCount((prev) => prev + 1);
+          onKeyDown={(event) => {
+            if (uncountedKeys.includes(event.key) === false) {
+              setKeyCount((prev) => prev + 1);
+            }
           }}
           className="u-inp"
         />
@@ -139,7 +160,7 @@ const Typing = () => {
     </div>
   ) : (
     <div>
-      <Header score={score} keyCount={keyCount} />
+      <Header score={score} />
       <div className="game-over-con">
         <p className="go-para">GAME OVER</p>
         <p className="sco-para">You scored {score} points</p>

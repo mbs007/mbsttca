@@ -43,3 +43,24 @@ export const ToBeTyped = (problemString, inputString) => {
   }
   return value;
 };
+
+export const getTotalProblemsCount = (...rest) => {
+  let count = 0;
+  for (let item of rest) {
+    count += item.length;
+  }
+  return count;
+};
+
+export const getTotalKeyStrokes = (...rest) => {
+  let count = 0;
+  for (let item of rest) {
+    count += item;
+  }
+  return count;
+};
+
+export const getAccuracy = (pc, kc) => {
+  const accuracy = Math.floor((pc / kc) * 100);
+  return accuracy;
+};
