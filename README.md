@@ -1,24 +1,33 @@
+# Project Demo Link
+
+https://mbstt.netlify.app/
+
 # Project Description
 
 1.This is a 'Touch Typing' app where user can practice typing keys ('a','s','d','f','j','k','l,';',' ')
 
 2.App consists of Header, Typing Container and Footer.
 
-3.Header consists of score, timer and keycount.
+3.Header consists of score, timer and accuracy in percentage.
 
-4.keycount is the number of key presses made by user in input field.
-
-5.When user provided input is same as generated typing statement, user will score one point and new statement
+4.When user provided input is same as generated typing statement, user will score one point and new statement
 is generated and input field is resetted.
 
-6.There is a timer of 5 minutes. After timer ends, user will see a Game Over Score Board with Start Again Button.
+5.There is a timer of 5 minutes. After timer ends, user will see a Game Over Score Board with Start Again Button.
 on clicking button game is resetted to initial state.
 
-7.Typing container consists of 
+6.Typing container consists of 
 a-combination,repetition select elements with options ; 
 b-generated typing statement (default is  bigrams with 2combination and 3 repetition); 
 c- input field 
-d- key supposed to be typed next
+d- key supposed to be typed next 
+
+7. Accuracy calculation using redux toolkit 
+a- created slice and store and provided store to the application
+b- when userinput equals generated typing statement, it will dispatch two actions(addItem,addKeyStrokes) which will call their corresponding reducer function that uptades the slice of our store and we are subscribed to the store using use selector , so whenever state of the slice gets updated, app gets updated accordingly.
+c-when 5 minute timer ends , game over board is displayed and actions(clearAllItems,clearAllKeyStrokes) are dispatched.
+d- Accuracy is calculated based on  total length of generated typing statements and  total keycounts in the 5 min duration
+
 
 
 

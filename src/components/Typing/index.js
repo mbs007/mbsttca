@@ -149,7 +149,7 @@ const Typing = () => {
           placeholder="Type here"
           onChange={onChangeUserInput}
           onKeyDown={(event) => {
-            if (uncountedKeys.includes(event.key) === false) {
+            if (!uncountedKeys.includes(event.key)) {
               setKeyCount((prev) => prev + 1);
             }
           }}
